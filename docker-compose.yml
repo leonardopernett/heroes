@@ -1,0 +1,25 @@
+version: '3.1'
+services:
+  app:
+    image: heroes_app
+    restart: always
+    logging: 
+      driver: 'json-file'
+      options:
+        max-file: '3'
+        max-size: '1024m'
+        
+  apache: 
+    image: httpd:2.4.48
+    restart: always
+    ports: 
+      - 80:80
+      - 443:443
+    logging: 
+      driver: 'json-file'
+      options: 
+        max-file: '3'
+        max-size: '1024m'
+    
+
+ 
